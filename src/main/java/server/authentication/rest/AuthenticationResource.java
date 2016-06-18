@@ -20,7 +20,7 @@ public class AuthenticationResource {
 
         try {
 
-            // Try to create a new token for user
+            // Try to create a new token for User
             String token = authService.createToken(username, password);
 
             // Return the token on the response

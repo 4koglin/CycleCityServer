@@ -2,7 +2,7 @@ package server;
 
 import server.authentication.rest.AuthenticationResource;
 import server.authentication.service.AuthenticationFilter;
-import server.coordinates.REST.CoordinatesResource;
+import server.coordinates.rest.CoordinatesResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
 import server.user.rest.UserResource;

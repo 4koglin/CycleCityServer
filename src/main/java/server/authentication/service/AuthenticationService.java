@@ -13,7 +13,7 @@ public class AuthenticationService {
 
     public String createToken(String username, String password) {
         // Issue a token (can be a random String persisted to a database or a JWT token)
-        // The issued token must be associated to a user
+        // The issued token must be associated to a User
         // Return the issued token
 
         return null;
