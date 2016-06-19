@@ -19,16 +19,16 @@ public class AuthenticationResource {
                                      @FormParam("password") String password) {
 
         try {
-
-            // Try to create a new token for User
+            // Try to create a new Token for User
             String token = authService.createToken(username, password);
 
-            // Return the token on the response
+            // Return the Token on the response
             return Response.ok(token).build();
 
         } catch (Exception e) {
 
-            return Response.status(Response.Status.UNAUTHORIZED).build();
+            return Response.status(Response.Status.UNAUTHORIZED).type("text/plain")
+                    .entity(e.getMessage()).build();
         }
     }
 

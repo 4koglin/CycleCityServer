@@ -13,7 +13,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 
-@Path("/User")
+
+@Path("/user")
 public class UserResource {
 
     @Inject
@@ -23,13 +24,11 @@ public class UserResource {
     private UserRepository userRepository;
 
     @POST
-    @Path("/CreateNew")
-    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/create")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Response getMsg(@FormParam("username") String username,
                            @FormParam("password") String password,
                            @FormParam("email") String email) {
-
 
         for(String param : Arrays.asList(username, password, email)) {
             if (param == null || param == "") {
@@ -42,19 +41,27 @@ public class UserResource {
         }
 
         try {
-            // Try to create a new tol);ken for User
-            User user = new User(username, password, email);
-            userRepository.save(user);
 
-            // Return the token on the response
-            return Response.ok("Account " + user.getUsername() + " has been created").build();
+            userService.createNewUser(username, password, email);
+
+            return Response.ok("Account " + username + " has been created").build();
 
         } catch (Exception e) {
 
-
             return Response.status(Response.Status.EXPECTATION_FAILED).build();
         }
+    }
 
+    //TODO Create user with jaxb from xsd
+
+    @POST
+    @Path("/CreateNew")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes()
+    public Response getMsg() {
+
+        return Response.status(Response.Status.EXPECTATION_FAILED).type("text/plain")
+                .entity("use application/x-www-form-urlencoded or application/json").build();
     }
 
 }
