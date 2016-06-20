@@ -9,10 +9,7 @@ import server.gps.model.WaypointRepository;
 import javax.inject.Inject;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.InputMismatchException;
-import java.util.List;
+import java.util.*;
 
 @Service
 public class GpsService {
@@ -53,6 +50,8 @@ public class GpsService {
 
     public void storeGPSData(long userid, JSONObject jsonObject) throws ParseException {
 
+        List<Waypoint> waypoints = new ArrayList<>();
+
         for (Object key : jsonObject.keySet()) {
 
             String keyStr = (String) key;
@@ -69,10 +68,13 @@ public class GpsService {
                         currentWaypoint.getDouble("lat"),
                         currentWaypoint.getDouble("lon"),
                         currentWaypoint.getDouble("ele"),
-                        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(currentWaypoint.getString("time"))
+                        new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(currentWaypoint.getString("time")),
+                        new Date()
                 );
-                waypointRepository.save(waypoint);
+                waypoints.add(waypoint);
             }
         }
+
+        waypointRepository.save(waypoints);
     }
 }

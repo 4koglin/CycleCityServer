@@ -26,7 +26,7 @@ public class Waypoint {
 
     protected Waypoint() {};
 
-    public Waypoint(long userid, String tourid, long cmt, double latitude, double longitude, double altitude, Date clientTimestamp)
+    public Waypoint(long userid, String tourid, long cmt, double latitude, double longitude, double altitude, Date clientTimestamp, Date serverTimestamp)
     {
         this.userid = userid;
         this.tourid = tourid;
@@ -35,6 +35,7 @@ public class Waypoint {
         this.longitude = longitude;
         this.altitude = altitude;
         this.clientTimestamp = clientTimestamp;
+        this.serverTimestamp = serverTimestamp;
     }
 
     public long getId() {

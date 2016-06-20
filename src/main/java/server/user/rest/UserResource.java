@@ -48,7 +48,7 @@ public class UserResource {
 
         } catch (Exception e) {
 
-            return Response.status(Response.Status.EXPECTATION_FAILED).build();
+            return Response.status(Response.Status.EXPECTATION_FAILED).entity(e.getMessage()).build();
         }
     }
 

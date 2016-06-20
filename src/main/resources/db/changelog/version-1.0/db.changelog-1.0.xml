@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <databaseChangeLog
-        xmlns="http://www.liquibase.org/xml/ns/dbchangelog/1.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog/1.9
-                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-1.9.xsd">
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+             http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
 
         <changeSet author="mkoglin" id="1">
 
@@ -12,13 +13,18 @@
                     <constraints primaryKey="true" nullable="false"/>
                 </column>
                 <column name="username" type="VARCHAR(50)">
-                     <constraints nullable="false"/>
+                     <constraints nullable="false"
+                                  unique="true"
+                                  uniqueConstraintName="uniq_user"/>
                 </column>
                 <column name="password" type="VARCHAR(50)">
                     <constraints nullable="false"/>
                 </column>
-                <column name="email" type="VARCHAR(50)"/>
-
+                <column name="email" type="VARCHAR(50)">
+                    <constraints nullable="false"
+                                 unique="true"
+                                 uniqueConstraintName="uniq_email"/>
+                </column>
                 <column name="activationtoken" type="VARCHAR(50)"/>
                 <column name="active" type="VARCHAR(50)">
                     <constraints nullable="false"/>
@@ -61,16 +67,19 @@
                 <column autoIncrement="true" name="id" type="BIGINT">
                     <constraints  primaryKey="true"/>
                 </column>
-                <column name="user_id" type="BIGINT">
+                <column name="userid" type="BIGINT">
 
                 </column>
-                <column name="token" type="VARCHAR(32)"/>
+                <column name="token" type="VARCHAR(32)">
+                    <constraints nullable="false"
+                                 unique="true"
+                                 uniqueConstraintName="uniq_token"/>
+                </column>
             </createTable>
 
             <sql>
-                insert into USER (id, username, password, email, active) values
-                (1, 'test', '.test.', NULL, 1);
-
+                insert into user (id, username, password, email, active) values
+                (1, 'test', '.test.', 'hans', 1);
             </sql>
 
 
