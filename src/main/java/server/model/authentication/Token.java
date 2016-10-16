@@ -1,11 +1,8 @@
-package server.authentication.model;
+package server.model.authentication;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
-/**
- * Created by pingu on 6/19/16.
- */
 @Entity
 public class Token  implements Serializable{
 
@@ -19,7 +16,7 @@ public class Token  implements Serializable{
     @Column(unique=true)
     private String token;
 
-    protected Token() {};
+    protected Token() {}
 
     public Token(long user_id, String token)
     {

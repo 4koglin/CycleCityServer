@@ -1,13 +1,8 @@
-package server.gps.model;
-
-import org.springframework.data.repository.CrudRepository;
+package server.model.gps;
 
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * Created by pingu on 6/19/16.
- */
 @Entity
 public class Waypoint {
 
@@ -24,7 +19,7 @@ public class Waypoint {
     private Date clientTimestamp;
     private Date serverTimestamp;
 
-    protected Waypoint() {};
+    protected Waypoint() {}
 
     public Waypoint(long userid, String tourid, long cmt, double latitude, double longitude, double altitude, Date clientTimestamp, Date serverTimestamp)
     {

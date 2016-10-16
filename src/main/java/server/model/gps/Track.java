@@ -1,11 +1,7 @@
-package server.gps.model;
+package server.model.gps;
 
 import javax.persistence.*;
 import java.util.Date;
-
-/**
- * Created by pingu on 6/19/16.
- */
 
 @Entity
 public class Track {
@@ -19,7 +15,7 @@ public class Track {
     private String tourid;
     private Date start;
 
-    protected Track() {};
+    protected Track() {}
 
     public long getId() {
         return id;

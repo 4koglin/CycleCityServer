@@ -1,9 +1,8 @@
-package server.user.model;
+package server.model.user;
 
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.security.SecureRandom;
-import java.time.LocalDateTime;
 import java.util.Calendar;
 import java.util.Date;
 import javax.persistence.*;

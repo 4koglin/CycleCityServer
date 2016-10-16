@@ -1,18 +1,14 @@
-package server.user.rest;
+package server.rest.user;
 
-import server.user.model.User;
-import server.user.model.UserRepository;
-import server.user.service.UserService;
+import server.model.user.UserRepository;
+import server.services.user.UserService;
 
 import javax.inject.Inject;
-import javax.validation.constraints.NotNull;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.util.ArrayList;
 import java.util.Arrays;
-
-
+import java.util.Objects;
 
 @Path("/user")
 public class UserResource {
@@ -31,7 +27,7 @@ public class UserResource {
                            @FormParam("email") String email) {
 
         for(String param : Arrays.asList(username, password, email)) {
-            if (param == null || param == "") {
+            if (param == null || Objects.equals(param, "")) {
                 throw new WebApplicationException(
                         Response.status(Response.Status.BAD_REQUEST)
                                 .entity("username, password and email are mandatory")

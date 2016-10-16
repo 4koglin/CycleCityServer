@@ -1,6 +1,6 @@
-package server.authentication.rest;
+package server.rest.authentication;
 
-import server.authentication.service.AuthenticationService;
+import server.services.authentication.AuthenticationService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

@@ -1,8 +1,8 @@
-package server.authentication.service;
+package server.services.authentication;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import server.authentication.model.TokenRepository;
+import server.model.authentication.TokenRepository;
 
 import java.io.IOException;
 import java.security.Principal;
@@ -18,10 +18,6 @@ import javax.ws.rs.core.SecurityContext;
 import javax.ws.rs.ext.Provider;
 
 import javax.annotation.Priority;
-
-/**
- * Created by pingu on 6/14/16.
- */
 
 @Provider
 @Secured
@@ -98,7 +94,7 @@ public class AuthenticationFilter implements ContainerRequestFilter {
             tokenRepository.findTokenByToken(token).getToken();
         } catch (Exception e)
         {
-            throw new NotAuthorizedException("invalid token");
+            throw new NotAuthorizedException("invalid user");
         }
     }
 

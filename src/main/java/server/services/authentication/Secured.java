@@ -1,4 +1,4 @@
-package server.authentication.service;
+package server.services.authentication;
 
 import javax.ws.rs.NameBinding;
 import java.lang.annotation.Retention;

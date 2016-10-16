@@ -1,9 +1,9 @@
-package server.gps.rest;
+package server.rest.gps;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import server.authentication.service.Secured;
-import server.gps.service.GpsService;
+import server.services.authentication.Secured;
+import server.services.gps.GpsService;
 
 import javax.inject.Inject;
 import javax.ws.rs.*;

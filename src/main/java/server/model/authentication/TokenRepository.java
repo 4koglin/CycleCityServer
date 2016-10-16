@@ -1,12 +1,6 @@
-package server.authentication.model;
+package server.model.authentication;
 
 import org.springframework.data.repository.CrudRepository;
-
-import java.util.List;
-
-/**
- * Created by pingu on 6/19/16.
- */
 
 public interface TokenRepository extends CrudRepository<Token, Long>{
 

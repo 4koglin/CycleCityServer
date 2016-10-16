@@ -1,9 +1,8 @@
-package server.user.service;
+package server.services.user;
 
-import org.hibernate.service.spi.ServiceException;
 import org.springframework.stereotype.Service;
-import server.user.model.User;
-import server.user.model.UserRepository;
+import server.model.user.User;
+import server.model.user.UserRepository;
 
 import javax.inject.Inject;
 

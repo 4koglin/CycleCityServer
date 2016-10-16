@@ -1,11 +1,11 @@
 package server;
 
-import server.authentication.rest.AuthenticationResource;
-import server.authentication.service.AuthenticationFilter;
-import server.gps.rest.GpsResource;
+import server.rest.authentication.AuthenticationResource;
+import server.services.authentication.AuthenticationFilter;
+import server.rest.gps.GpsResource;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.springframework.stereotype.Component;
-import server.user.rest.UserResource;
+import server.rest.user.UserResource;
 
 @Component
 public class JerseyConfig extends ResourceConfig {

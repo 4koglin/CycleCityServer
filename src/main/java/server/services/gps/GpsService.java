@@ -1,10 +1,10 @@
-package server.gps.service;
+package server.services.gps;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Service;
-import server.gps.model.Waypoint;
-import server.gps.model.WaypointRepository;
+import server.model.gps.Waypoint;
+import server.model.gps.WaypointRepository;
 
 import javax.inject.Inject;
 import java.text.ParseException;

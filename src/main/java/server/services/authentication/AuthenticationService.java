@@ -1,10 +1,10 @@
-package server.authentication.service;
+package server.services.authentication;
 
 import org.springframework.stereotype.Service;
-import server.authentication.model.Token;
-import server.authentication.model.TokenRepository;
-import server.user.model.User;
-import server.user.model.UserRepository;
+import server.model.authentication.Token;
+import server.model.authentication.TokenRepository;
+import server.model.user.User;
+import server.model.user.UserRepository;
 
 import javax.inject.Inject;
 import javax.ws.rs.NotAuthorizedException;
@@ -43,7 +43,7 @@ public class AuthenticationService {
             userid = authenticateUser(username, password);
         } catch (NotAuthorizedException e)
         {
-            throw new NotAuthorizedException("Not authorized, no token created");
+            throw new NotAuthorizedException("Not authorized, no user created");
         }
 
         tokenS = generateToken();
